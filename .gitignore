@@ -25,6 +25,9 @@ logs/
 *.swp
 # VSCode
 #.vscode/
+# Cursor (allowlist.json 等はリポジトリ管理)
+!.cursor/
+!.cursor/**
 # Sublime Text
 *.sublime-project
 *.sublime-workspace

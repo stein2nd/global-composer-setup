@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## v1.0.1: 2026-08-16
+
+### Added
+
+* Packagist に `stein2nd/global-composer` を初回 submit。GitHub Hook で tag push が自動クロールされる。
+* `.cursor/` (`allowlist.json`) をリポジトリ管理対象にする。
+
 ## v1.0.0: 2026-08-15
 
 ### Added

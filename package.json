@@ -1,7 +1,7 @@
 {
   "name": "global-composer-setup",
   "private": true,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Manage globally installed Composer packages via composer.json with ccu.",
   "author": "Koutarou ISHIKAWA <stein2nd@gmail.com>",
   "license": "GPL-3.0-or-later",
