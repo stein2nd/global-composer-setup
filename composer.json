@@ -1,0 +1,39 @@
+{
+    "name": "stein2nd/global-composer",
+    "description": "Manage globally installed Composer packages via composer.json with ccu.",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "bin": ["bin/global-composer"],
+    "authors": [
+        {
+            "name": "Koutarou ISHIKAWA",
+            "email": "stein2nd@gmail.com"
+        }
+    ],
+    "homepage": "https://github.com/stein2nd/global-composer-setup",
+    "support": {
+        "issues": "https://github.com/stein2nd/global-composer-setup/issues",
+        "source": "https://github.com/stein2nd/global-composer-setup"
+    },
+    "keywords": [
+        "composer",
+        "global",
+        "packages",
+        "setup",
+        "ccu",
+        "composer-check-updates",
+        "clui"
+    ],
+    "require": {
+        "php": ">=8.3",
+        "webworkerjoshua/composer-check-updates": "^0.0.3"
+    },
+    "extra": {
+        "global-composer": {
+            "upstream-version": "1.0.0",
+            "require": {
+                "stein2nd/global-composer": "^1.0.0"
+            }
+        }
+    }
+}

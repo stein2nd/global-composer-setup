@@ -1,0 +1,10 @@
+node_modules
+coverage
+.sandbox
+.cursor
+.vscode
+.github
+docsMod
+test
+*.tgz
+.DS_Store

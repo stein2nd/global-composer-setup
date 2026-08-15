@@ -1,0 +1,69 @@
+# Composer
+/vendor/
+/wordpress/
+composer.phar
+
+# Node (any depth: root workspace, packages/*, tools/docs-linter, etc.)
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+!package-lock.json
+
+# Logs / Temporary files
+logs/
+*.log
+*.tmp
+*.bak
+*.pid
+*.seed
+*.tgz
+
+# IDE / Editor
+# PhpStorm / IntelliJ
+.idea/
+*.swp
+# VSCode
+#.vscode/
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Env files
+.env
+.env.local
+
+# Build / cache
+# dist/ は Packagist tag に含める (bin が指す成果物)
+!dist/
+!dist/**
+
+# Composer 配布 tarball (scripts/package/php-archive.zsh で再生成)
+/artifacts/*.tar
+/artifacts/*.tar.gz
+/artifacts/*.tar.bz2
+/artifacts/*.zip
+!artifacts/.gitkeep
+
+.sandbox/
+!.sandbox/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Unit testing / coverage
+/coverage/
+.phpunit.result.cache
+.phpunit.cache/
+
+# System cache
+.cache/
+
+# Codegen temporary
+/tmp/
+
+# TypeScript workspace build output (rebuild with `npm run build -w @s2j/similarity-client`)
+/packages/ts-client/dist/
+
+# tools/generated/ts はリポジトリ管理し CI で再現性を検証する (Composer dist からは .gitattributes で除外)

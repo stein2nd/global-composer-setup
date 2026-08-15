@@ -1,0 +1,21 @@
+* text=auto eol=lf
+
+# Packagist / git archive から外す開発専用パス
+/node_modules export-ignore
+/test export-ignore
+/docs export-ignore
+/docsMod export-ignore
+/.github export-ignore
+/.vscode export-ignore
+/.cursor export-ignore
+/coverage export-ignore
+/eslint.config.mjs export-ignore
+/prettier.config.mjs export-ignore
+/vite.config.ts export-ignore
+/tsconfig.json export-ignore
+/.textlintrc.json export-ignore
+/.prettierignore export-ignore
+/.npmrc export-ignore
+package-lock.json export-ignore
+.gitignore export-ignore
+.DS_Store export-ignore

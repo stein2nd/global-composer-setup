@@ -1,0 +1,10 @@
+node_modules
+dist
+coverage
+package-lock.json
+LICENSE
+CHANGELOG.md
+composer.json
+.cursor
+.vscode
+.textlintrc.json

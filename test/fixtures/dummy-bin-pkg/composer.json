@@ -1,0 +1,8 @@
+{
+    "name": "global-composer-test/dummy-bin",
+    "description": "Fixture package with a bin for E2E install tests",
+    "version": "1.0.0",
+    "type": "library",
+    "license": "GPL-3.0-or-later",
+    "bin": ["bin/dummy-gcs"]
+}
