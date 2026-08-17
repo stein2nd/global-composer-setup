@@ -230,13 +230,13 @@ test('naming: CLI command name', () => {
   );
 });
 
-test('naming: development package.json is private', () => {
+test('naming: package.json is npm-publishable', () => {
   const pkg = readJson(PKG_PATH);
   mark(
     'NAM-03',
     'naming',
-    '開発用 package.json が private で name が `global-composer-setup` であること。',
-    pkg.private === true && pkg.name === 'global-composer-setup',
+    'package.json の name が `global-composer-setup` で、`private` ではないこと。',
+    pkg.name === 'global-composer-setup' && pkg.private !== true,
   );
 });
 

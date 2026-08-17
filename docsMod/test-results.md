@@ -1,6 +1,6 @@
 # Global Composer Package Setup - 仕様準拠テスト結果
 
-最終実行: **2026-08-15**
+最終実行: **2026-08-17**
 
 実行: `npm test`
 
@@ -48,7 +48,7 @@
 | --- | --- | --- | --- |
 | NAM-01 | naming | PASS | composer.json の name が `stein2nd/global-composer` であること。 |
 | NAM-02 | naming | PASS | composer.json の bin に `bin/global-composer` があること。 |
-| NAM-03 | naming | PASS | 開発用 package.json が private で name が `global-composer-setup` であること。 |
+| NAM-03 | naming | PASS | package.json の name が `global-composer-setup` で、`private` ではないこと。 |
 | CLI-01 | cli | PASS | `bin/global-composer` が存在すること。 |
 | CLI-02 | cli | PASS | bin 先頭行が `#!/usr/bin/env node` であること。 |
 | CLI-05 | cli | PASS | JSON 処理が `JSON.parse` であること。 |

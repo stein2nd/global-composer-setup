@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## v1.0.2: 2026-08-17
+
+### Changed
+
+* README の macOS バッジを `26.6.1` に追従。
+* `package.json` から `private: true` を外す。CLI (`bin/` / `dist/` / `src/`) の振る舞いは v1.0.1のまま。
+* NAM-03: `package.json` が npm publish 可能 (`private` ではない) であることを確認する。
+
 ## v1.0.1: 2026-08-16
 
 ### Added
