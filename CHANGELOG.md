@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## v1.0.3: 2026-08-31
+
+### Changed
+
+* README の macOS バッジを `26.6.2` に追従。
+* 開発依存を更新 (`@s2j/docs-linter` ^1.0.23、`@types/node` ^26.4.0、`eslint` ^10.9.1、`typescript-eslint` ^8.68.0、`vite` ^8.2.2、`vitest` ^4.1.11)。CLI (`bin/` / `dist/` / `src/`) の振る舞いは v1.0.2のまま。
+
 ## v1.0.2: 2026-08-17
 
 ### Changed
