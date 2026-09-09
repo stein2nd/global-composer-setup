@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## v1.0.4: 2026-09-09
+
+### Changed
+
+* README に Vite バッジ (`8.2`) を追加。
+* 開発依存を更新 (`@s2j/docs-linter` ^1.0.24、`@types/node` ^26.5.0、`eslint` ^10.10.0、`globals` ^17.12.0、`typescript-eslint` ^8.70.0、`vitest` ^5.0.0)。CLI (`bin/` / `dist/` / `src/`) の振る舞いは v1.0.3のまま。
+
 ## v1.0.3: 2026-08-31
 
 ### Changed

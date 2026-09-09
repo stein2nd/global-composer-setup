@@ -4,6 +4,7 @@
 [![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?logo=php&logoColor=white)](https://www.php.net/)
 [![Composer](https://img.shields.io/badge/Composer-2.3+-blue.svg?logo=composer&logoColor=white)](https://getcomposer.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18.0+-blue.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Vite](https://img.shields.io/badge/vite-8.2-blue.svg)](https://vite.dev)
 [![macOS](https://img.shields.io/badge/macOS-26.6.2-000000?logo=apple&logoColor=white)](https://www.apple.com/os/macos/)
 [![Windows 11](https://img.shields.io/badge/Windows-11%2025H2-000000?logo=windows&logoColor=white)](https://www.microsoft.com/windows/)
 
