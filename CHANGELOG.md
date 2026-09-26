@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+## v1.0.5: 2026-09-26
+
+### Changed
+
+* README の Vite バッジを `8.3` に追従。
+* `composer.json` で CCU プラグイン (`webworkerjoshua/composer-check-updates`) を `allow-plugins` する。
+* `composer.lock` をリポジトリ管理対象にする。
+* 開発依存を更新 (`@s2j/docs-linter` ^1.0.25、`@types/node` ^26.6.3、`eslint` ^10.11.0、`prettier` ^3.9.9、`typescript-eslint` ^8.70.1、`vite` ^8.3.1、`vitest` ^5.0.2)。CLI (`bin/` / `dist/` / `src/`) の振る舞いは v1.0.4のまま。
+
 ## v1.0.4: 2026-09-09
 
 ### Changed

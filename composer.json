@@ -35,5 +35,10 @@
                 "stein2nd/global-composer": "^1.0.0"
             }
         }
+    },
+    "config": {
+        "allow-plugins": {
+            "webworkerjoshua/composer-check-updates": true
+        }
     }
 }

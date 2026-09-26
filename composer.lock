@@ -1,0 +1,75 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "d19671716abfb6f332d33cc13bc6174f",
+    "packages": [
+        {
+            "name": "webworkerjoshua/composer-check-updates",
+            "version": "v0.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/webworkerJoshua/composer-check-updates.git",
+                "reference": "cc39b39def18404fa08eaa2ca44d422ede3cd19a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/webworkerJoshua/composer-check-updates/zipball/cc39b39def18404fa08eaa2ca44d422ede3cd19a",
+                "reference": "cc39b39def18404fa08eaa2ca44d422ede3cd19a",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^2.3",
+                "php": ">=8.3"
+            },
+            "require-dev": {
+                "composer/composer": "^2.7",
+                "pestphp/pest": "^4.0",
+                "phpstan/phpstan": "^2.0"
+            },
+            "bin": [
+                "bin/ccu"
+            ],
+            "type": "composer-plugin",
+            "extra": {
+                "class": "ComposerCheckUpdates\\Plugin"
+            },
+            "autoload": {
+                "psr-4": {
+                    "ComposerCheckUpdates\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Interactive dependency update checker for Composer — shows updates within and beyond your version ranges, npm-check-updates style",
+            "keywords": [
+                "composer",
+                "dependencies",
+                "interactive",
+                "ncu",
+                "outdated",
+                "update"
+            ],
+            "support": {
+                "issues": "https://github.com/webworkerJoshua/composer-check-updates/issues",
+                "source": "https://github.com/webworkerJoshua/composer-check-updates/tree/v0.0.3"
+            },
+            "time": "2026-06-12T21:10:28+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {},
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": {
+        "php": ">=8.3"
+    },
+    "platform-dev": {},
+    "plugin-api-version": "2.9.0"
+}

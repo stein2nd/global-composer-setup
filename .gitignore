@@ -2,6 +2,7 @@
 /vendor/
 /wordpress/
 composer.phar
+!composer.lock
 
 # Node (any depth: root workspace, packages/*, tools/docs-linter, etc.)
 node_modules/
