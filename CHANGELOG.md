@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## v1.0.6: 2026-10-02
+
+### Changed
+
+* `.vscode/settings.json` で `json.schemaDownload.enable` を有効にし、廃止された `npm.enableScriptExplorer` を外す。
+* 開発依存を更新 (`@s2j/docs-linter` ^1.0.26、`@types/node` ^26.6.4、`globals` ^17.13.0、`typescript-eslint` ^8.71.0、`vite` ^8.3.2、`vitest` ^5.0.3)。CLI (`bin/` / `dist/` / `src/`) の振る舞いは v1.0.5のまま。
+
 ## v1.0.5: 2026-09-26
 
 ### Changed
