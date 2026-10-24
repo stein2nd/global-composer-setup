@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+## v1.0.8: 2026-10-24
+
+### Changed
+
+* 開発依存を更新 (`@s2j/docs-linter` ^1.0.30、`eslint` ^10.13.0、`typescript-eslint` ^8.72.0、`vite` ^8.3.5、`vitest` ^5.0.5)。CLI (`bin/` / `dist/` / `src/`) の振る舞いは v1.0.7のまま。
+
 ## v1.0.7: 2026-10-15
 
 ### Changed
