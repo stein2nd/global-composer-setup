@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+## v1.0.9: 2026-11-05
+
+### Changed
+
+* 開発依存を更新 (`@s2j/docs-linter` ^1.0.32、`@types/node` ^26.6.6、`eslint` ^10.14.0、`globals` ^17.14.0、`typescript-eslint` ^8.72.1、`vite` ^8.3.6、`vitest` ^5.1.0)。
+* `composer.lock` を現行 Composer で再生成 (lock メタデータのみ。依存パッケージは v1.0.8のまま)。
+* CLI (`bin/` / `dist/` / `src/`) の振る舞いは v1.0.8のまま。
+
 ## v1.0.8: 2026-10-24
 
 ### Changed

@@ -58,7 +58,8 @@
                 "issues": "https://github.com/webworkerJoshua/composer-check-updates/issues",
                 "source": "https://github.com/webworkerJoshua/composer-check-updates/tree/v0.0.3"
             },
-            "time": "2026-06-12T21:10:28+00:00"
+            "time": "2026-06-12T21:10:28+00:00",
+            "published-time": "2026-06-12T21:11:28+00:00"
         }
     ],
     "packages-dev": [],
@@ -71,5 +72,5 @@
         "php": ">=8.3"
     },
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.11.0"
 }
