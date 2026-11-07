@@ -2,6 +2,13 @@
 
 ## Unreleased
 
+## v1.0.10: 2026-11-07
+
+### Changed
+
+* GitHub Actions (`CI` / `Lint Docs`) で runner を `ubuntu-24.04` に固定し、`actions/checkout@v5` と `actions/setup-node@v5` を採用。CI 用 Node.js を `24` に更新 (ランナー非推奨と `ubuntu-latest` 移行の注釈を解消)。
+* CLI (`bin/` / `dist/` / `src/`) の振る舞いは v1.0.9のまま。
+
 ## v1.0.9: 2026-11-05
 
 ### Changed
