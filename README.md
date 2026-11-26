@@ -1,9 +1,9 @@
 # 📦 Global Composer Package Setup
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0.en.html)
-[![PHP](https://img.shields.io/badge/PHP-8.3+-777BB4?logo=php&logoColor=white)](https://www.php.net/)
-[![Composer](https://img.shields.io/badge/Composer-2.3+-blue.svg?logo=composer&logoColor=white)](https://getcomposer.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-18.0+-blue.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/)
+[![PHP](https://img.shields.io/badge/PHP-8.6+-777BB4?logo=php&logoColor=white)](https://www.php.net/)
+[![Composer](https://img.shields.io/badge/Composer-2.11+-blue.svg?logo=composer&logoColor=white)](https://getcomposer.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-22.12+-blue.svg?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![Vite](https://img.shields.io/badge/vite-8.3-blue.svg)](https://vite.dev)
 [![macOS](https://img.shields.io/badge/macOS-26.6.2-000000?logo=apple&logoColor=white)](https://www.apple.com/os/macos/)
 [![Windows 11](https://img.shields.io/badge/Windows-11%2025H2-000000?logo=windows&logoColor=white)](https://www.microsoft.com/windows/)
@@ -59,7 +59,7 @@ global にインストール済みのパッケージを一覧します (`compose
 事前 `sync` なしで、定番フローとは独立しています。
 
 出力1行目は `COMPOSER_HOME=…` です。`install` 直後の反映確認、PHP / Composer 切り替え後の home 確認、`check` と実環境の食い違いの切り分けなどに使います。
-詳細は [使い方](./docsMod/usage.md#list-global-環境の確認) をご覧ください。
+詳細は [使い方](./docs/usage.md#list-global-環境の確認) をご覧ください。
 
 ## しくみ
 
@@ -76,7 +76,7 @@ global にインストール済みのパッケージを一覧します (`compose
 | macOS、Linux | `~/.config/global-composer` |
 | Windows 11 | `%APPDATA%\global-composer` |
 
-`GLOBAL_COMPOSER_SETUP_DIR` 環境変数で上書きできます。`$SETUP_DIR` は宣言の置き場、`$COMPOSER_HOME` は実環境です。混ぜません。詳細は [docsMod/layout.md](./docsMod/layout.md) をご覧ください。
+`GLOBAL_COMPOSER_SETUP_DIR` 環境変数で上書きできます。`$SETUP_DIR` は宣言の置き場、`$COMPOSER_HOME` は実環境です。混ぜません。詳細は [layout.md](./docs/layout.md) をご覧ください。
 
 ## セットアップ
 
@@ -84,7 +84,7 @@ global にインストール済みのパッケージを一覧します (`compose
 
 ### macOS での下準備
 
-Homebrew、PHP v8.3以降、Composer v2.3以降、Node.js v18以降が未導入の場合は、先にインストールしてください。
+Homebrew、PHP v8.3以降、Composer v2.3以降、Node.js v22.12以降が未導入の場合は、先にインストールしてください。
 
 1. `php -v`、`composer --version`、`node -v` を実行する。
  1. 失敗する場合は、`brew install php composer node` または `nvm install` などで、必要なランタイムをインストールする。
@@ -98,7 +98,7 @@ Homebrew、PHP v8.3以降、Composer v2.3以降、Node.js v18以降が未導入�
 
 ### Windows での下準備
 
-PHP v8.3以上、Composer v2.3以上、Node.js v18以上 (LTS 推奨) が未導入の場合は、先にインストールしてください。PHP は [php.net](https://windows.php.net/)、scoop、winget のいずれか、Composer は [公式 Windows インストーラ](https://getcomposer.org/download/)、Node.js は [fnm](https://github.com/Schniz/fnm)、[nvm-windows](https://github.com/coreybutler/nvm-windows)、[Volta](https://volta.sh/)、公式インストーラのいずれでもかまいません。
+PHP v8.3以上、Composer v2.3以上、Node.js v22.12以上 (LTS 推奨) が未導入の場合は、先にインストールしてください。PHP は [php.net](https://windows.php.net/)、scoop、winget のいずれか、Composer は [公式 Windows インストーラ](https://getcomposer.org/download/)、Node.js は [fnm](https://github.com/Schniz/fnm)、[nvm-windows](https://github.com/coreybutler/nvm-windows)、[Volta](https://volta.sh/)、公式インストーラのいずれでもかまいません。
 
 1. `php -v`、`composer --version`、`node -v` を実行する。
  1. 失敗する場合は、上記の経路から PHP、Composer、Node.js をインストールする。
@@ -158,7 +158,7 @@ global-composer sync --dry-run
 
 ## 使い方
 
-下記については、[使い方](./docsMod/usage.md) をご覧ください。
+下記については、[使い方](./docs/usage.md) をご覧ください。
 
 * 各コマンドの役割 (`check`、`update`、`install`、`add`、`sync`、`list`)
 * 定番フロー (`check` → `update` → `install`)

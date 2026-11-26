@@ -1,7 +1,7 @@
 # Global Composer Package Setup - SPECS
 
-確定前の仕様ドキュメントへの導線です。
-姉妹 [Global npm Package Setup](https://github.com/stein2nd/global-npm-setup) の `docs/` (2026-08-15確定) を踏襲した **Composer 版リファレンス実装** の草案です。
+仕様ドキュメントへの導線です。
+姉妹 [Global npm Package Setup](https://github.com/stein2nd/global-npm-setup) の `docs/` (2026-08-15確定) を踏襲した **Composer 版リファレンス実装** です。
 
 ## シリーズ位置付け
 
@@ -21,9 +21,7 @@
 * グローバルに入れるパッケージ一覧を、マニフェストで管理する。
 * 公式一覧 (upstream) と利用側の追加分 (overlay) を分ける。
 * OS を問わず、同じサブコマンド体系で鮮度を管理する。
-* 仕様は `docs/` を正本とし、改修中は `docsMod/` で草案を置く。
-
-本草案は `docsMod/` に置きます。確定後に `docs/` へ移します。
+* 仕様は `docs/` を正本とする。改修草案や進行記録は `docsMod/` に置く ([modification.md](../docsMod/modification.md)、[status.md](../docsMod/status.md)、[test-results.md](../docsMod/test-results.md))。完了分は [archive/](./archive/) に退避する。
 
 ## 設計方針
 
@@ -93,7 +91,7 @@ flowchart TD
 
 | ランタイム / ツール | 要求 | 根拠 |
 | --- | --- | --- |
-| Node.js | **v18以上** (`engines.node`) | 姉妹 Global npm Setup を踏襲。CLUI 本体の実行 |
+| Node.js | **v22.12以上** (`engines.node`) | 開発依存と CLUI 実行の下限。姉妹 Docs Linter と同様。GitHub Actions は Node24 |
 | PHP | **v8.3以上** | [Composer Check Updates](https://github.com/webworkerJoshua/composer-check-updates) を踏襲 |
 | Composer | **v2.3以上** | 同上 (`composer-plugin-api: ^2.3`) |
 | Composer Check Updates | 外部ツール (グローバルプラグイン) | `check` / `update` の実体 |
@@ -160,15 +158,16 @@ GitHub の tag / Release を Packagist がクロールする流れに合わせ�
 
 | 種別 | 場所 |
 | --- | --- |
-| 草案 (本ディレクトリ) | [docsMod/](./) |
-| 公開正本 (確定後) | `docs/` (未作成) |
+| 公開正本 | [docs/](./) |
+| 改修草案・進行記録 | [docsMod/](../docsMod/) (`modification.md` / `status.md` / `test-results.md`) |
+| アーカイブ | [archive/](./archive/) |
 
 ### 仕様書のライフサイクル
 
-1. **草案:** `docsMod/` でリライトする (本作業)。
-2. **確定:** 現行の `docs/*.md` があれば `docs/archive/` に移動して freeze する。
-3. **公開正本:** リライト確定版を `docs/` に移動する。
+1. **草案:** 仕様改変は `docsMod/` で書き、タスクは [modification.md](../docsMod/modification.md) で管理する。
+2. **確定:** 確定版を `docs/` に移す。差し替え前の旧版は `docs/archive/` に freeze する。
+3. **完了:** initiative 用の `docsMod/modification.md` / `docsMod/status.md` を archive に退避できる。
 
 ## ステータス
 
-**草案:** 2026-08-15。姉妹 [global-npm-setup](https://github.com/stein2nd/global-npm-setup) の `docs/` を踏襲。
+**確定:** 2026-11-26に仕様正本を `docs/` に移行。`docsMod/` は進行記録と今後の仕様改変用に残す。姉妹 [global-npm-setup](https://github.com/stein2nd/global-npm-setup) の `docs/` を踏襲。

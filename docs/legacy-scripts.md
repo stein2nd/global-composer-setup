@@ -61,7 +61,7 @@ Composer 実装では `composer global require stein2nd/global-composer` が `$C
 | --- | --- |
 | OS 非依存 | Node + Composer。macOS、Windows 11で同一。 |
 | 入口の一本化 | check、update、install、sync、add、list が1つの CLUI。 |
-| C 型 install | 列挙して明示的に COMPOSER_HOME へ入れる。CCU 整合を保ちつつ jq 不要。 |
+| C 型 install | 列挙して明示的に COMPOSER_HOME に入れる。CCU 整合を保ちつつ jq 不要。 |
 | setup と実環境の分離 | `$SETUP_DIR` と `$COMPOSER_HOME` を混ぜない。 |
 | 標準的な PATH 管理 | `composer global require` が `$COMPOSER_HOME/vendor/bin` に `global-composer` を置く。`~/bin` 不要。 |
 | 新マシンセットアップ簡素化 | PHP + Composer + Node + `composer global require stein2nd/global-composer` で開始。 |
@@ -80,7 +80,7 @@ FOP + Vite は、この CLUI を **保守しやすい内部構造** にするた
 | 初回 bootstrap | 先に `composer global require stein2nd/global-composer` が必要 | ◎ |
 | Packagist / tag 依存 | 公式一覧の変更は `tag` (または開発時の `path` リポジトリ) が必要 | ◎: [packagist-publish.md](./packagist-publish.md) 参照 |
 | ネットワーク | 初回および更新時に Packagist 到達が前提 | ◎ |
-| Node ランタイム | CLUI 実行に Node.js v18以上が必要 | ◎: シリーズ実装を共有するため |
+| Node ランタイム | CLUI 実行に Node.js v22.12以上が必要 | ◎: シリーズ実装を共有するため |
 | 純 dotfiles からの距離 | 「clone するだけ」より Packagist パッケージとしての運用に寄る | ◎ |
 | カスタム一覧 | 勤務先だけ別 pkg 集合にするには fork か overlay が必要 | ◎: overlay manifest (`user-deps.json`) で対応 |
 

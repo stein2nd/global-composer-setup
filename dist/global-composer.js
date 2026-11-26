@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-//#region \0rolldown/runtime.js
+// \0rolldown/runtime.js
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -20,7 +20,6 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 	value: mod,
 	enumerable: true
 }) : target, mod));
-//#endregion
 let node_fs = require("node:fs");
 node_fs = __toESM(node_fs);
 let node_path = require("node:path");
@@ -29,15 +28,14 @@ let node_url = require("node:url");
 let node_os = require("node:os");
 node_os = __toESM(node_os);
 let node_child_process = require("node:child_process");
-//#region src/domain/constants.ts
+// src/domain/constants.ts
 var PHP_CONSTRAINT = ">=8.3";
 var SELF_PACKAGE = "stein2nd/global-composer";
 var CCU_PACKAGE = "webworkerjoshua/composer-check-updates";
 var MATERIALIZED_NAME = "global-composer/user-manifest";
 var MATERIALIZED_DESCRIPTION = "Effective Composer global manifest (generated)";
 var SETUP_DIR_NAME = "global-composer";
-//#endregion
-//#region src/adapters/package-root.ts
+// src/adapters/package-root.ts
 function findPackageRoot(startDir) {
 	let dir = node_path.default.resolve(startDir);
 	while (true) {
@@ -55,8 +53,6 @@ function fileUrlDir(url) {
 	return node_path.default.dirname((0, node_url.fileURLToPath)(url));
 }
 function defaultStartDir() {
-	const metaUrl = {}.url;
-	if (typeof metaUrl === "string" && metaUrl.startsWith("file:")) return fileUrlDir(metaUrl);
 	const script = process.argv[1];
 	if (script) try {
 		return node_path.default.dirname(node_fs.default.realpathSync(script));
@@ -69,8 +65,7 @@ function resolvePackageRoot(fromUrl) {
 	if (fromUrl && fromUrl.startsWith("file:")) return findPackageRoot(fileUrlDir(fromUrl));
 	return findPackageRoot(defaultStartDir());
 }
-//#endregion
-//#region src/adapters/paths.ts
+// src/adapters/paths.ts
 function defaultSetupDir() {
 	if (process.platform === "win32") {
 		const appData = process.env.APPDATA ?? node_path.default.join(node_os.default.homedir(), "AppData", "Roaming");
@@ -89,8 +84,7 @@ function resolveSetupContext(packageRoot) {
 		metaPath: node_path.default.join(setupDir, ".upstream-meta.json")
 	};
 }
-//#endregion
-//#region src/adapters/json-io.ts
+// src/adapters/json-io.ts
 function readJson(filePath) {
 	if (!node_fs.default.existsSync(filePath)) return null;
 	const raw = node_fs.default.readFileSync(filePath, "utf8");
@@ -137,8 +131,7 @@ function readMaterialized(filePath) {
 function readRequire(filePath) {
 	return readMaterialized(filePath)?.require ?? {};
 }
-//#endregion
-//#region src/domain/parse-add-spec.ts
+// src/domain/parse-add-spec.ts
 var COMPOSER_NAME = /^[a-z0-9]([_.-]?[a-z0-9]+)*\/[a-z0-9]([_.-]?[a-z0-9]+)*$/i;
 function isComposerPackageName(name) {
 	return COMPOSER_NAME.test(name);
@@ -158,8 +151,7 @@ function parseAddSpec(arg) {
 		valid: isComposerPackageName(name)
 	};
 }
-//#endregion
-//#region src/adapters/spawn.ts
+// src/adapters/spawn.ts
 function useShell() {
 	return process.platform === "win32";
 }
@@ -178,8 +170,7 @@ function exitStatus(result) {
 	}
 	return result.status ?? 1;
 }
-//#endregion
-//#region src/adapters/composer.ts
+// src/adapters/composer.ts
 function runComposer(args, options = {}) {
 	return exitStatus(runCommand("composer", args, {
 		inherit: true,
@@ -216,8 +207,7 @@ function allowCcuPlugin(options = {}) {
 		"true"
 	], options);
 }
-//#endregion
-//#region src/domain/parse-latest-stable.ts
+// src/domain/parse-latest-stable.ts
 var UNSTABLE = /(?:^dev-)|-(?:dev|alpha|a|beta|b|rc|preview)\d*/i;
 function isStableVersion(version) {
 	const normalized = version.trim().replace(/^v/i, "");
@@ -249,8 +239,7 @@ function collectVersions(parsed) {
 function stripVersionPrefix(version) {
 	return version.trim().replace(/^v/i, "");
 }
-//#endregion
-//#region src/application/resolve-default-constraint.ts
+// src/application/resolve-default-constraint.ts
 function resolveDefaultConstraint(packageName, { spawn, log = console.error } = {}) {
 	const result = captureComposer([
 		"show",
@@ -265,8 +254,7 @@ function resolveDefaultConstraint(packageName, { spawn, log = console.error } = 
 	log(`Warning: could not resolve latest version for ${packageName}; using "*".`);
 	return "*";
 }
-//#endregion
-//#region src/domain/materialized.ts
+// src/domain/materialized.ts
 function buildMaterializedComposer(merged) {
 	return {
 		name: MATERIALIZED_NAME,
@@ -283,8 +271,7 @@ function toComposerJson(manifest) {
 		"require-dev": manifest.requireDev
 	};
 }
-//#endregion
-//#region src/domain/merge-require.ts
+// src/domain/merge-require.ts
 function mergeRequire({ upstream, current, meta, userDeps }) {
 	const merged = {};
 	const upstreamRequire = upstream.require ?? {};
@@ -316,8 +303,7 @@ function mergeRequire({ upstream, current, meta, userDeps }) {
 	merged["php"] = PHP_CONSTRAINT;
 	return merged;
 }
-//#endregion
-//#region src/domain/merge-require-dev.ts
+// src/domain/merge-require-dev.ts
 function mergeRequireDev({ current, meta, userDeps }) {
 	const merged = {};
 	const userDev = userDeps.requireDev ?? {};
@@ -336,8 +322,7 @@ function mergeRequireDev({ current, meta, userDeps }) {
 	}
 	return merged;
 }
-//#endregion
-//#region src/domain/official-require.ts
+// src/domain/official-require.ts
 function officialRequireFromComposerJson(composerJson) {
 	const extraRequire = composerJson.extra?.["global-composer"]?.require ?? {};
 	return {
@@ -345,8 +330,7 @@ function officialRequireFromComposerJson(composerJson) {
 		...extraRequire
 	};
 }
-//#endregion
-//#region src/domain/report.ts
+// src/domain/report.ts
 function diffSections(before = {}, after = {}) {
 	const added = [];
 	const updated = [];
@@ -390,8 +374,7 @@ function formatReport(report) {
 	}
 	return lines;
 }
-//#endregion
-//#region src/application/sync-manifest.ts
+// src/application/sync-manifest.ts
 function readUpstreamVersion(upstream) {
 	const extra = upstream.extra;
 	if (extra && typeof extra === "object" && !Array.isArray(extra)) {
@@ -458,8 +441,7 @@ function syncManifest(ctx, { dryRun = false } = {}) {
 		nextPkg
 	};
 }
-//#endregion
-//#region src/application/handle-add.ts
+// src/application/handle-add.ts
 function handleAdd(ctx, args) {
 	const isDev = args.includes("--dev");
 	const positional = args.filter((arg) => arg !== "--dev");
@@ -483,8 +465,7 @@ function handleAdd(ctx, args) {
 	console.error(`Added ${spec.name}:${constraint} to user-deps.json (${section}).`);
 	return 0;
 }
-//#endregion
-//#region src/adapters/ccu.ts
+// src/adapters/ccu.ts
 function ccuArgs(setupDir, extra) {
 	return [
 		"--working-dir",
@@ -503,32 +484,27 @@ function captureCcuJson(setupDir, options = {}) {
 		"json"
 	]), options);
 }
-//#endregion
-//#region src/application/prepare.ts
+// src/application/prepare.ts
 function prepare(ctx) {
 	ensureSetupDir(ctx);
 	return syncManifest(ctx);
 }
-//#endregion
-//#region src/application/handle-check.ts
+// src/application/handle-check.ts
 function handleCheck(ctx) {
 	prepare(ctx);
 	return runCcuCheck(ctx.setupDir);
 }
-//#endregion
-//#region src/domain/install-spec.ts
+// src/domain/install-spec.ts
 function toGlobalInstallSpec(name, constraint) {
 	const trimmed = typeof constraint === "string" ? constraint.trim() : "";
 	if (!trimmed) return name;
 	return `${name}:${trimmed}`;
 }
-//#endregion
-//#region src/domain/platform-package.ts
+// src/domain/platform-package.ts
 function isPlatformPackage(name) {
 	return name === "php" || name.startsWith("ext-");
 }
-//#endregion
-//#region src/application/handle-install.ts
+// src/application/handle-install.ts
 function handleInstall(ctx) {
 	prepare(ctx);
 	const requireMap = readRequire(ctx.materializedComposerPath);
@@ -546,15 +522,13 @@ function handleInstall(ctx) {
 		...specs
 	]);
 }
-//#endregion
-//#region src/application/handle-list.ts
+// src/application/handle-list.ts
 function handleList() {
 	const home = resolveComposerHome();
 	console.log(`COMPOSER_HOME=${home}`);
 	return runComposer(["global", "show"]);
 }
-//#endregion
-//#region src/application/handle-sync.ts
+// src/application/handle-sync.ts
 function handleSync(ctx, dryRun) {
 	ensureSetupDir(ctx);
 	const { changed, report } = syncManifest(ctx, { dryRun });
@@ -567,8 +541,7 @@ function handleSync(ctx, dryRun) {
 	if (changed) console.error(`Synced materialized manifest: ${ctx.materializedComposerPath}`);
 	return 0;
 }
-//#endregion
-//#region src/domain/apply-ccu-updates.ts
+// src/domain/apply-ccu-updates.ts
 function applyCcuUpdates(current, updates) {
 	const requireMap = { ...current.require };
 	const requireDev = { ...current.requireDev };
@@ -589,8 +562,7 @@ function applyCcuUpdates(current, updates) {
 		requireDev
 	};
 }
-//#endregion
-//#region src/domain/parse-ccu-json.ts
+// src/domain/parse-ccu-json.ts
 function extractJsonObject(text) {
 	const start = text.indexOf("{");
 	const end = text.lastIndexOf("}");
@@ -619,8 +591,7 @@ function parseCcuJson(stdout) {
 	}
 	return updates;
 }
-//#endregion
-//#region src/application/handle-update.ts
+// src/application/handle-update.ts
 function handleUpdate(ctx) {
 	prepare(ctx);
 	const captured = captureCcuJson(ctx.setupDir);
@@ -643,8 +614,7 @@ function handleUpdate(ctx) {
 	if (captured.stdout.trim()) process.stdout.write(captured.stdout.endsWith("\n") ? captured.stdout : `${captured.stdout}\n`);
 	return 0;
 }
-//#endregion
-//#region src/cli/usage.ts
+// src/cli/usage.ts
 var USAGE = `Usage: global-composer <check|update|install|sync|add|list>
 
   check    Check for available updates (composer check-updates --dry-run)
@@ -657,8 +627,7 @@ var USAGE = `Usage: global-composer <check|update|install|sync|add|list>
 function printUsage() {
 	console.error(USAGE);
 }
-//#endregion
-//#region src/cli/run.ts
+// src/cli/run.ts
 function runMain(argv) {
 	const [subcommand, ...rest] = argv;
 	try {
@@ -712,9 +681,7 @@ function runMain(argv) {
 		return 1;
 	}
 }
-//#endregion
-//#region src/cli/main.ts
+// src/cli/main.ts
 process.exit(runMain(process.argv.slice(2)));
-//#endregion
 
 //# sourceMappingURL=global-composer.js.map

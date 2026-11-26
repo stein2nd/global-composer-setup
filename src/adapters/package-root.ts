@@ -37,11 +37,6 @@ function fileUrlDir(url: string): string {
 }
 
 function defaultStartDir(): string {
-  const metaUrl = import.meta.url;
-  if (typeof metaUrl === 'string' && metaUrl.startsWith('file:')) {
-    return fileUrlDir(metaUrl);
-  }
-
   const script = process.argv[1];
   if (script) {
     try {

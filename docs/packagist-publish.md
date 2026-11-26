@@ -85,10 +85,10 @@ maintainer: `stein2nd` (Packagist / GitHub 同一)。
 
 * `require.php` はプラットフォーム要求です。C 型 install の列挙対象外です ([install.md](./install.md))。
 * `require` のその他は **公式グローバルインストール対象** (upstream 正本) です。CCU を含めます (`check` / `update` の実体)。
-* 自己参照 `stein2nd/global-composer` は Composer が root の自己 require を拒否するため、`extra.global-composer.require` に置き、CLUI が公式一覧へ合成します。
+* 自己参照 `stein2nd/global-composer` は Composer が root の自己 require を拒否するため、`extra.global-composer.require` に置き、CLUI が公式一覧に合成します。
 * `.gitattributes` の `export-ignore` で、docs / tests / 開発用ファイルを配布物から外してよいです。GPL 対応として `src/` を残すかは [license.md](./license.md) を参照してください。
 
-開発用 `package.json` は npmjs に出しません。`private: true` と `engines.node: >=18` だけを持ちます。
+開発用 `package.json` は npmjs に出しません。`engines.node: >=22.12.0` を宣言します (GitHub Actions の CI / Lint Docs は Node24)。
 
 ## 初回 submit (一度だけ)
 

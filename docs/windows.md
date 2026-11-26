@@ -28,7 +28,7 @@ Composer 実装の CLUI は Node.js 上で動き、Vite でビルドしてもラ
 | --- | --- | --- |
 | PHP | v8.3以上 | [php.net](https://windows.php.net/)、scoop、winget |
 | Composer | v2.3以上 | [getcomposer.org](https://getcomposer.org/download/) の Windows インストーラ |
-| Node.js | v18以上 | [fnm](https://github.com/Schniz/fnm) (推奨)、[nvm-windows](https://github.com/coreybutler/nvm-windows)、[Volta](https://volta.sh/)、公式インストーラ |
+| Node.js | v22.12以上 | [fnm](https://github.com/Schniz/fnm) (推奨)、[nvm-windows](https://github.com/coreybutler/nvm-windows)、[Volta](https://volta.sh/)、公式インストーラ |
 
 ```powershell
 php -v
@@ -146,7 +146,7 @@ README は、OS 別セクションに分けます。
 
 ## テスト観点
 
-確認項目と OS 別の手順・合否は [test-results.md](./test-results.md) の「実機テスト」節です。
+確認項目と OS 別の手順・合否は [test-results.md](../docsMod/test-results.md) の「実機テスト」節です。
 記録の入力は [`test/manual-tests.json`](../test/manual-tests.json) です。
 
 | 確認項目 | ID |

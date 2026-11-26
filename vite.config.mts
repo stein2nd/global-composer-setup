@@ -9,14 +9,14 @@ export default defineConfig({
     },
     outDir: 'dist',
     emptyOutDir: true,
-    target: 'node18',
+    target: 'node22',
     minify: false,
     sourcemap: true,
-    rollupOptions: {
+    rolldownOptions: {
       external: [/^node:/, 'child_process', 'fs', 'os', 'path', 'process', 'url', 'util'],
       output: {
+        codeSplitting: false,
         exports: 'auto',
-        inlineDynamicImports: true,
       },
     },
   },

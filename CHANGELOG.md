@@ -2,6 +2,22 @@
 
 ## Unreleased
 
+## v1.1.0: 2026-11-26
+
+### Changed
+
+* `engines.node` と README の Node 下限を **v22.12** に引き上げ (Docs Linter と同様。CI は Node v24のまま)。
+* 仕様正本を `docs/` に移し、`docsMod/` は進行記録 (`modification.md` / `status.md` / `test-results.md`) と今後の仕様改変用に残す。
+* Vite 設定を `vite.config.mts` に移行。ビルドターゲットを `node22`、Rolldown の `codeSplitting: false` に更新。
+* E2E サンドボックスで Packagist を無効化し、CCU を `test/fixtures/composer-check-updates` の パスリポジトリから解決 (オフラインでも `npm test` が通る)。
+* `.textlintrc.json` の allowlist に `global-composer` を追加 (prh の誤検出を回避)。
+* `lint:docs` の対象を `docs/` と `docsMod/*.md` に整理。
+* 開発依存を更新 (`@s2j/docs-linter` ^1.0.35、`@types/node` ^26.6.11、`typescript-eslint` ^8.74.0、`vitest` ^5.1.2)。
+
+### Fixed
+
+* CJS ビルドで `import.meta.url` が無効化される問題。`package-root` は `process.argv[1]` のみから package root を解決する。
+
 ## v1.0.11: 2026-11-20
 
 ### Changed
@@ -89,7 +105,7 @@
 * ライセンス GPL-3.0-or-later。
 
 * 仕様準拠テストの残項目を自動テスト化し、`docsMod/test-results.md` に PASS / PENDING を出す。サンドボックス E2E (check / update / install / list) と CI の PHP 8.3 / Composer。
-* 実機テスト台帳 (`test/manual-tests.json`)。macOS / Windows 11別の確認方法を報告書へ転記。macOS は HW-01〜09実施済み。
+* 実機テスト台帳 (`test/manual-tests.json`)。macOS / Windows 11別の確認方法を報告書に転記。macOS は HW-01〜09実施済み。
 
 ### Changed
 

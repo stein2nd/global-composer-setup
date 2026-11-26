@@ -11,6 +11,6 @@
     "isolatedModules": true,
     "types": ["node"]
   },
-  "include": ["src/**/*.ts", "test/**/*.ts", "vite.config.ts"],
+  "include": ["src/**/*.ts", "test/**/*.ts", "vite.config.mts"],
   "exclude": ["node_modules", "dist"]
 }

@@ -133,7 +133,7 @@ cli はサブコマンド判定のあと、application → Composer adapter に�
 
 ## 実機確認 (任意)
 
-HW-05。OS 別の手順と合否は [test-results.md](./test-results.md) の「実機テスト」節です。
+HW-05。OS 別の手順と合否は [test-results.md](../docsMod/test-results.md) の「実機テスト」節です。
 
 ## ステータス
 

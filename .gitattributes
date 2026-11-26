@@ -11,7 +11,7 @@
 /coverage export-ignore
 /eslint.config.mjs export-ignore
 /prettier.config.mjs export-ignore
-/vite.config.ts export-ignore
+/vite.config.mts export-ignore
 /tsconfig.json export-ignore
 /.textlintrc.json export-ignore
 /.prettierignore export-ignore

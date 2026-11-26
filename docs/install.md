@@ -19,7 +19,7 @@ FOP 構成でも C 型の意味論は変えません。
 | --- | --- | --- | --- | --- |
 | A. jq 列挙 | シェルで `composer global require $(jq …)` | ◎ | ◎ | △ (jq + シェル) |
 | B. setup を COMPOSER_HOME にする | `$SETUP_DIR` で `composer install` | △ | △ | ◎ |
-| **C. 列挙して明示 install** | 実効 `composer.json` を読み、明示的に global project へ入れる | ◎ | ◎ | ◎ |
+| **C. 列挙して明示 install** | 実効 `composer.json` を読み、明示的に global project に入れる | ◎ | ◎ | ◎ |
 
 ### B 型を採用しない理由
 

@@ -161,13 +161,13 @@ global-composer-setup/
 │   └── adapters/          # fs、spawn、paths、CCU / Composer
 ├── dist/                  # Vite ビルド成果 (bin が指す)
 ├── bin/                   # Composer が公開するコマンド (成果へのラッパー可)
-├── vite.config.ts
-├── package.json           # Node / Vite 開発用 (private、engines.node >=18)
+├── vite.config.mts
+├── package.json           # Node / Vite 開発用 (engines.node >=22.12.0)
 ├── composer.json          # upstream 正本 + Packagist 定義 + bin
 ├── LICENSE
 ├── README.md
-├── docs/                  # 確定仕様 (確定後)
-└── docsMod/               # 改修中の進行記録 / 草案
+├── docs/                  # 仕様正本
+└── docsMod/               # 進行記録 (modification / status / test-results) と仕様改変草案
 ```
 
 Clean Architecture のフルセット (entities / use-cases / interface-adapters / frameworks の機械的分割) は採用しません。
@@ -187,7 +187,7 @@ Clean Architecture のフルセット (entities / use-cases / interface-adapters
 ### 自己参照の constraint
 
 Composer は root パッケージが自分自身を `require` することを拒否します (`Root package cannot require itself`)。
-そのため自己参照は `require` ではなく `extra.global-composer.require` に置き、CLUI が公式一覧へ合成します。
+そのため自己参照は `require` ではなく `extra.global-composer.require` に置き、CLUI が公式一覧に合成します。
 
 `stein2nd/global-composer` の constraint は、**Packagist 済みの最新バージョン** を `^x.y.z` で明示します。
 

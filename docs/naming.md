@@ -74,7 +74,7 @@ Vite 再構成後も、**リポジトリ名、Packagist 名、コマンド名は
   "private": true,
   "description": "Manage globally installed Composer packages via composer.json with ccu.",
   "engines": {
-    "node": ">=18"
+    "node": ">=22.12.0"
   }
 }
 ```

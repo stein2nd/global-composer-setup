@@ -15,6 +15,7 @@ export const DUMMY_PKG = 'global-composer-test/dummy-bin';
 export const DUMMY_BIN = 'dummy-gcs';
 export const FIXTURE_DUMMY = path.join(REPO_ROOT, 'test', 'fixtures', 'dummy-bin-pkg');
 export const FIXTURE_SELF = path.join(REPO_ROOT, 'test', 'fixtures', 'self-stub');
+export const FIXTURE_CCU = path.join(REPO_ROOT, 'test', 'fixtures', 'composer-check-updates');
 
 export function composerOnPath(): boolean {
   const checker = process.platform === 'win32' ? 'where' : 'which';
@@ -36,6 +37,14 @@ export function resetE2eDirs(): void {
       },
     },
     repositories: [
+      {
+        packagist: false,
+      },
+      {
+        type: 'path',
+        url: FIXTURE_CCU,
+        options: { symlink: true },
+      },
       {
         type: 'path',
         url: FIXTURE_SELF,
