@@ -77,7 +77,7 @@ const UNIT_IDS: Array<{ id: string; spec: string; condition: string; file: strin
   {
     id: 'SYNC-05',
     spec: 'overlay-manifest',
-    condition: 'upstream 削除 (upstream 管理) が実効 composer.json から消えること。',
+    condition: 'upstream 削除 (upstream 管理) が実効 `composer.json` から消えること。',
     file: 'test/merge-require.test.ts',
   },
   {
@@ -89,19 +89,19 @@ const UNIT_IDS: Array<{ id: string; spec: string; condition: string; file: strin
   {
     id: 'SYNC-07',
     spec: 'overlay-manifest',
-    condition: 'user-deps require-dev が実効 composer.json にマージされること。',
+    condition: 'user-deps require-dev が実効 `composer.json` にマージされること。',
     file: 'test/merge-require-dev.test.ts',
   },
   {
     id: 'SYNC-08',
     spec: 'overlay-manifest',
-    condition: 'upstream require-dev が実効 composer.json に含まれないこと。',
+    condition: 'upstream require-dev が実効 `composer.json` に含まれないこと。',
     file: 'test/merge-require-dev.test.ts',
   },
   {
     id: 'SYNC-09',
     spec: 'overlay-manifest',
-    condition: 'user-deps から消した require-dev が実効 composer.json からも消えること。',
+    condition: 'user-deps から消した require-dev が実効 `composer.json` からも消えること。',
     file: 'test/merge-require-dev.test.ts',
   },
   {
@@ -119,7 +119,7 @@ const UNIT_IDS: Array<{ id: string; spec: string; condition: string; file: strin
   {
     id: 'RANGE-01',
     spec: 'overlay-manifest',
-    condition: 'composer show --available 成功時に ^x.y.z を返すこと。',
+    condition: '`composer show --available` 成功時に ^x.y.z を返すこと。',
     file: 'test/parse-add-spec.test.ts',
   },
   {
@@ -213,7 +213,7 @@ test('naming: Packagist package name', () => {
   mark(
     'NAM-01',
     'naming',
-    'composer.json の name が `stein2nd/global-composer` であること。',
+    '`composer.json` の name が `stein2nd/global-composer` であること。',
     composer.name === 'stein2nd/global-composer',
     `actual: ${String(composer.name)}`,
   );
@@ -225,7 +225,7 @@ test('naming: CLI command name', () => {
   mark(
     'NAM-02',
     'naming',
-    'composer.json の bin に `bin/global-composer` があること。',
+    '`composer.json` の bin に `bin/global-composer` があること。',
     Array.isArray(bin) && bin.includes('bin/global-composer'),
   );
 });
@@ -280,10 +280,10 @@ test('cli: usage on missing or unknown subcommand', () => {
   mark(
     'CLI-11',
     'cli',
-    'サブコマンド未指定時に usage を表示して exit 1 すること。',
+    'サブコマンド未指定時に usage を表示して `exit 1` すること。',
     missing === 1 && USAGE.includes('Usage: global-composer'),
   );
-  mark('CLI-12', 'cli', '未知サブコマンド時に usage を表示して exit 1 すること。', unknown === 1);
+  mark('CLI-12', 'cli', '未知サブコマンド時に usage を表示して `exit 1` すること。', unknown === 1);
 });
 
 test('cli: add updates user-deps.json', () => {
@@ -337,7 +337,7 @@ test('cli: sync materializes overlay manifest', () => {
   mark(
     'CLI-19',
     'cli',
-    '`sync` が upstream require と自己参照を実効 composer.json に反映すること。',
+    '`sync` が upstream require と自己参照を実効 `composer.json` に反映すること。',
     status === 0 &&
       materialized.name === 'global-composer/user-manifest' &&
       materializedRequire.php === '>=8.3' &&
@@ -394,7 +394,7 @@ test('install: C-type composer global require', () => {
   mark(
     'INS-04',
     'install',
-    'packages が空のとき `No packages to install.` で exit 1 すること。',
+    'packages が空のとき `No packages to install.` で `exit 1` すること。',
     source.includes('No packages to install.'),
   );
   mark(
@@ -434,7 +434,7 @@ test('license: GPL-3.0-or-later', () => {
   mark(
     'LIC-01',
     'license',
-    'composer.json と package.json の license が GPL-3.0-or-later であること。',
+    '`composer.json` と package.json の license が GPL-3.0-or-later であること。',
     composer.license === 'GPL-3.0-or-later' && pkg.license === 'GPL-3.0-or-later',
   );
   mark(
@@ -495,7 +495,7 @@ test('cli: check does not rewrite the repository composer.json', () => {
   mark(
     'CLI-16',
     'cli',
-    'check 実行後もリポジトリ root の composer.json が変わらないこと。',
+    'check 実行後もリポジトリ root の `composer.json` が変わらないこと。',
     read(COMPOSER_PATH) === before,
   );
 });
@@ -679,7 +679,7 @@ test(
     markE2e(
       'E2E-03',
       'cli',
-      'サンドボックスで `update` が実効 composer.json だけを書き換えること。',
+      'サンドボックスで `update` が実効 `composer.json` だけを書き換えること。',
       ready &&
         status === 0 &&
         read(COMPOSER_PATH) === beforeRoot &&
@@ -826,6 +826,8 @@ afterAll(() => {
     '',
     '実機の合否は [`test/manual-tests.json`](../test/manual-tests.json) を更新し、再実行でこのファイルへ反映する。',
     '',
+    '実機メモの表記: ツール名は `名前 vバージョン` (例: `Composer v2.10.2`)。設定項目名などカタカナ化が不適切な英語語はバッククォートで包む (例: `path` リポジトリ)。',
+    '',
     '## サマリー',
     '',
     '### 自動テスト',
@@ -885,7 +887,17 @@ afterAll(() => {
     manualLeftover.length === 0 ? '残項目はありません。' : manualTable(manualLeftover),
     '',
   ];
-  fs.writeFileSync(path.join(ROOT, 'docsMod', 'test-results.md'), `${lines.join('\n')}\n`);
+  const reportPath = path.join(ROOT, 'docsMod', 'test-results.md');
+  fs.writeFileSync(reportPath, `${lines.join('\n')}\n`);
+  const lint = spawnSync('npx', ['textlint', '--fix', reportPath], {
+    cwd: ROOT,
+    encoding: 'utf8',
+  });
+  if (lint.status !== 0) {
+    throw new Error(
+      `textlint --fix failed for docsMod/test-results.md:\n${lint.stdout}\n${lint.stderr}`,
+    );
+  }
 });
 
 test('optional: composer is available', () => {
@@ -897,7 +909,7 @@ test('optional: composer is available', () => {
   mark(
     'ENV-01',
     'runtime',
-    'PATH 上に composer があること (実機確認)。',
+    'PATH 上に `composer` があること (実機確認)。',
     result.status === 0,
     result.status === 0 ? '' : 'composer が PATH にないため WARN',
     { warnOnFail: true },

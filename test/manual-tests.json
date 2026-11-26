@@ -5,14 +5,14 @@
       "spec": "windows",
       "condition": "`global-composer check` が実環境で動くこと。",
       "methods": {
-        "macos": "`global-composer check` → 終了 0。`git diff -- composer.json` が空。",
-        "windows": "PowerShell で `global-composer check` → 終了 0。`git diff -- composer.json` が空。"
+        "macos": "`global-composer check` → 終了0。`git diff -- composer.json` が空。",
+        "windows": "PowerShell で `global-composer check` → 終了0。`git diff -- composer.json` が空。"
       },
       "results": {
         "macos": {
           "status": "PASS",
           "date": "2026-08-15",
-          "note": "終了 0。All dependencies match the latest available versions。repo composer.json 未変更。root-version 警告あり。"
+          "note": "終了0。All dependencies match the latest available versions。repo `composer.json` 未変更。root-version 警告あり。"
         },
         "windows": { "status": "PENDING" }
       }
@@ -20,16 +20,16 @@
     {
       "id": "HW-02",
       "spec": "windows",
-      "condition": "`global-composer update` が実効 composer.json だけを書き換えること。",
+      "condition": "`global-composer update` が実効 `composer.json` だけを書き換えること。",
       "methods": {
-        "macos": "`global-composer update` → 終了 0。変わるのは `~/.config/global-composer/composer.json` だけ。",
-        "windows": "`global-composer update` → 終了 0。変わるのは `%APPDATA%\\global-composer\\composer.json` だけ。"
+        "macos": "`global-composer update` → 終了0。変わるのは `~/.config/global-composer/composer.json` だけ。",
+        "windows": "`global-composer update` → 終了0。変わるのは `%APPDATA%\\global-composer\\composer.json` だけ。"
       },
       "results": {
         "macos": {
           "status": "PASS",
           "date": "2026-08-15",
-          "note": "終了 0。最新のため制約変更なし。user-deps / COMPOSER_HOME / repo 未変更。"
+          "note": "終了0。最新のため制約変更なし。user-deps / COMPOSER_HOME / repo 未変更。"
         },
         "windows": { "status": "PENDING" }
       }
@@ -39,14 +39,14 @@
       "spec": "windows",
       "condition": "`global-composer install` (C 型) が COMPOSER_HOME に入ること。",
       "methods": {
-        "macos": "`global-composer install` → 終了 0。`composer global show` に公式 require と user-deps が出る。",
-        "windows": "PowerShell で `global-composer install` → 終了 0。続けて `composer global show`。"
+        "macos": "`global-composer install` → 終了0。`composer global show` に公式 require と user-deps が出る。",
+        "windows": "PowerShell で `global-composer install` → 終了0。続けて `composer global show`。"
       },
       "results": {
         "macos": {
           "status": "PASS",
           "date": "2026-08-15",
-          "note": "終了 0。C 型で php-cs-fixer 3.95.18 / global-composer 1.0.0 (path) / CCU 0.0.3 が COMPOSER_HOME に入った。"
+          "note": "終了0。C 型で php-cs-fixer v3.95.18 / global-composer v1.0.0 (`path`) / CCU v0.0.3 が COMPOSER_HOME に入った。"
         },
         "windows": { "status": "PENDING" }
       }
@@ -80,7 +80,7 @@
         "macos": {
           "status": "PASS",
           "date": "2026-08-15",
-          "note": "COMPOSER_HOME=/Users/stein/.composer。一覧は composer global show と一致。"
+          "note": "COMPOSER_HOME=/Users/stein/.composer。一覧は `composer global show` と一致。"
         },
         "windows": { "status": "PENDING" }
       }
@@ -88,16 +88,16 @@
     {
       "id": "HW-06",
       "spec": "windows",
-      "condition": "サブコマンドなし / 未知サブコマンドで usage を出して終了 1 であること。",
+      "condition": "サブコマンドなし / 未知サブコマンドで usage を出して終了1であること。",
       "methods": {
-        "macos": "`global-composer; echo $?` と `global-composer nosuch; echo $?` が 1。usage が出る。",
-        "windows": "`global-composer; echo $LASTEXITCODE` と `global-composer nosuch; echo $LASTEXITCODE` が 1。"
+        "macos": "`global-composer; echo $?` と `global-composer nosuch; echo $?` が1。usage が出る。",
+        "windows": "`global-composer; echo $LASTEXITCODE` と `global-composer nosuch; echo $LASTEXITCODE` が1。"
       },
       "results": {
         "macos": {
           "status": "PASS",
           "date": "2026-08-15",
-          "note": "引数なしと nosuch の両方で Usage、終了 1。"
+          "note": "引数なしと nosuch の両方で Usage、終了1。"
         },
         "windows": { "status": "PENDING" }
       }
@@ -131,7 +131,7 @@
         "macos": {
           "status": "PASS",
           "date": "2026-08-15",
-          "note": "Composer 2.10.2 / PHP 8.5.9。CCU ヘルプに --dry-run と --format あり。"
+          "note": "Composer v2.10.2 / PHP v8.5.9。CCU ヘルプに --dry-run と --format あり。"
         },
         "windows": { "status": "PENDING" }
       }
@@ -139,7 +139,7 @@
     {
       "id": "HW-09",
       "spec": "install",
-      "condition": "path リポジトリで `stein2nd/global-composer:@dev` を入れ、CLI が呼べること。",
+      "condition": "`path` リポジトリで `stein2nd/global-composer:@dev` を入れ、CLI が呼べること。",
       "methods": {
         "macos": "`composer global config repositories.gcs path \"$PWD\"` → `composer global require stein2nd/global-composer:@dev` → `global-composer` で usage。",
         "windows": "`composer global config repositories.gcs path \"$((Get-Location).Path)\"` のあと、同じ `require` と `global-composer`。"
@@ -148,7 +148,7 @@
         "macos": {
           "status": "PASS",
           "date": "2026-08-15",
-          "note": "path @dev (dev-main)。PHP 8.5.9 / Composer 2.10.2。Usage で終了 1。"
+          "note": "`path` @dev (dev-main)。PHP v8.5.9 / Composer v2.10.2。Usage で終了1。"
         },
         "windows": { "status": "PENDING" }
       }

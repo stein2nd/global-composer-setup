@@ -2,6 +2,17 @@
 
 ## Unreleased
 
+## v1.1.1: 2026-11-26
+
+### Changed
+
+* 仕様準拠テストが生成する `docsMod/test-results.md` を、条件文言の整備と `afterAll` での `textlint --fix` により Docs Linter (`lint:docs`) と整合させる。
+* `test/manual-tests.json` の実機テスト記録を統一 (ツール名は `名前 vバージョン`、Composer の `path` など設定識別子はコードスパン)。`test-results.md` 冒頭に同旨の注記を追加。
+
+### Fixed
+
+* GitHub Actions `lint-docs` が `docsMod/test-results.md` の prh 違反で落ちる問題。
+
 ## v1.1.0: 2026-11-26
 
 ### Changed
